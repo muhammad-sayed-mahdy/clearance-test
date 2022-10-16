@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The issue is when using [clearance backdoor](https://github.com/thoughtbot/clearance#fast-feature-specs) for testing, and using `as` user, when following the redirects by clicking buttons, it doesn't continue as the same user, and it redirects to the login page
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Try running the tests by `rails test:system` and it would fail in tests that have redirects
