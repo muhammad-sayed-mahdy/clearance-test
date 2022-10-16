@@ -3,15 +3,16 @@ require "application_system_test_case"
 class CarsTest < ApplicationSystemTestCase
   setup do
     @car = cars(:one)
+    @user = users(:one)
   end
 
   test "visiting the index" do
-    visit cars_url
+    visit cars_url(as: @user)
     assert_selector "h1", text: "Cars"
   end
 
   test "creating a Car" do
-    visit cars_url
+    visit cars_url(as: @user)
     click_on "New Car"
 
     fill_in "Make", with: @car.make
@@ -24,7 +25,7 @@ class CarsTest < ApplicationSystemTestCase
   end
 
   test "updating a Car" do
-    visit cars_url
+    visit cars_url(as: @user)
     click_on "Edit", match: :first
 
     fill_in "Make", with: @car.make
@@ -37,7 +38,7 @@ class CarsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Car" do
-    visit cars_url
+    visit cars_url(as: @user)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
